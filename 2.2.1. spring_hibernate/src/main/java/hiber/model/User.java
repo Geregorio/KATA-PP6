@@ -10,6 +10,9 @@ public class User {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
+   @Embedded
+   public Car car = new Car();
+
    @Column(name = "name")
    private String firstName;
 
@@ -25,6 +28,14 @@ public class User {
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
+   }
+
+   public User(String firstName, String lastName, String email, String model, int series) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
+      this.car.setModel(model);
+      this.car.setSeries(series);
    }
 
    public Long getId() {
