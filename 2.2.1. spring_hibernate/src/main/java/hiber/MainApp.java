@@ -40,7 +40,7 @@ public class MainApp {
             }
         }
 
-        List<User> userCar = userService.getUserByCar("Porsche", 911);
+        List<User> userCar = userService.getUser("Porsche", 911);
         for (User user : userCar) {
             System.out.println("Id = " + user.getId());
             System.out.println("First Name = " + user.getFirstName());
