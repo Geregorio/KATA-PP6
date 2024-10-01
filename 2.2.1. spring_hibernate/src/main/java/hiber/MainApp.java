@@ -15,16 +15,16 @@ public class MainApp {
 
         UserService userService = context.getBean(UserService.class);
 
-        userService.add(new User("User1", "Lastname1", "user1@mail.ru"));
-        userService.add(new User("User2", "Lastname2", "user2@mail.ru"));
-        userService.add(new User("User3", "Lastname3", "user3@mail.ru"));
-        userService.add(new User("User4", "Lastname4", "user4@mail.ru"));
-        userService.add(new User("User5", "LastName5", "user5@mail.ru", "BMW", 5));
-        userService.add(new User("User6", "LastName6", "user6@mail.ru", "AUDI", 6));
-        userService.add(new User("User7", "LastName7", "user7@mail.ru", "Mercedes", 220));
-        userService.add(new User("User8", "LastName8", "user8@mail.ru", "Porsche", 911));
+        userService.addUser(new User("User1", "Lastname1", "user1@mail.ru"));
+        userService.addUser(new User("User2", "Lastname2", "user2@mail.ru"));
+        userService.addUser(new User("User3", "Lastname3", "user3@mail.ru"));
+        userService.addUser(new User("User4", "Lastname4", "user4@mail.ru"));
+        userService.addUser(new User("User5", "LastName5", "user5@mail.ru", "BMW", 5));
+        userService.addUser(new User("User6", "LastName6", "user6@mail.ru", "AUDI", 6));
+        userService.addUser(new User("User7", "LastName7", "user7@mail.ru", "Mercedes", 220));
+        userService.addUser(new User("User8", "LastName8", "user8@mail.ru", "Porsche", 911));
 
-        List<User> users = userService.listUsers();
+        List<User> users = userService.getListUsers();
         for (User user : users) {
             System.out.println("Id = " + user.getId());
             System.out.println("First Name = " + user.getFirstName());
@@ -40,7 +40,7 @@ public class MainApp {
             }
         }
 
-        List<User> userCar = userService.getUser("Porsche", 911);
+        List<User> userCar = userService.getUserByCar("Porsche", 911);
         for (User user : userCar) {
             System.out.println("Id = " + user.getId());
             System.out.println("First Name = " + user.getFirstName());
